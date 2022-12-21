@@ -33,7 +33,7 @@ const router = express.Router()
 router.get('/', async (req, res) => {
     if (req.query.minimum_mass) {
         const query = req.query.minimum_mass
-        const result = await Landing.find({ $expr: { $gt: [{ $toDecimal: "$mass" }, +query] } }).select('name mass')
+        const result = await Landing.find({ $expr: { $gt: [{ $toDecimal: "$mass" }, +query] } })
         res.send(result).status(200)
     } else if (req.query.from && req.query.to) {
         const result = await Landing.find({ year: { $gte: req.query.from, $lt: req.query.to } })
