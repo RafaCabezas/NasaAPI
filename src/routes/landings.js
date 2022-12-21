@@ -53,6 +53,12 @@ router.get('/', async (req, res) => {
     }
 })
 
+router.get('/list', async (req, res) => {
+    const landings = await Landing.find({})
+
+    res.send(landings)
+})
+
 router.get('/mass/:masa', async (req, res) => {
     console.log(req.params)
 
