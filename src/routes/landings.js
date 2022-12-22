@@ -62,7 +62,7 @@ router.get('/list', async (req, res) => {
 router.get('/mass/:masa', async (req, res) => {
     console.log(req.params)
 
-    const landings = await Landing.find({ mass: req.params.masa }).select('name mass')
+    const landings = await Landing.find({ mass: req.params.masa })
 
     res.send(landings)
 })
@@ -70,7 +70,7 @@ router.get('/mass/:masa', async (req, res) => {
 router.get('/class/:clase', async (req, res) => {
     console.log(req.params)
 
-    const landings = await Landing.find({ recclass: req.params.clase }).select('name recclass')
+    const landings = await Landing.find({ recclass: req.params.clase })
 
     res.send(landings)
 })
